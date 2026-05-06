@@ -1,0 +1,84 @@
+AWS EC2 Instance Setup with Apache Web Server
+Practical Steps
+1. Sign in to AWS Console
+Open AWS Management Console.
+Login with your AWS account.
+2. Open EC2 Service
+Search for EC2 in the AWS search bar.
+Click on EC2 Dashboard.
+3. Launch a New Instance
+Click Launch Instance.
+Fill the following details:
+Name: myEC2server
+AMI (Operating System): Ubuntu Server 24.04
+Instance Type: t3.micro
+4. Create Key Pair
+Click Create new key pair.
+Enter:
+Key Pair Name: mykey
+Key Pair Type: RSA
+Private Key Format: .pem
+Download and save the .pem file safely.
+5. Configure Security Group
+Allow these rules:
+Type
+Port
+Source
+SSH
+22
+Anywhere
+HTTP
+80
+Anywhere
+Then click:
+Launch Instance
+Connect to EC2 Instance
+6. Open Instance
+Go to Instances
+Select your instance
+Click Connect
+Choose EC2 Instance Connect
+Click Connect
+Commands to Run in Terminal
+7. Update Packages
+Bash
+sudo apt update
+8. Install Apache Web Server
+Bash
+sudo apt install apache2 -y
+9. Start Apache Service
+Bash
+sudo systemctl start apache2
+10. Enable Apache Service
+Bash
+sudo systemctl enable apache2
+11. Go to Web Directory
+Bash
+cd /var/www/html
+12. Create/Edit HTML File
+Bash
+sudo nano index.html
+13. Write HTML Code
+Example:
+HTML
+<html>
+<head>
+<title>My AWS Server</title>
+</head>
+
+<body>
+<h1>Welcome to My EC2 Server</h1>
+</body>
+</html>
+Save the file:
+Press CTRL + O
+Press Enter
+Press CTRL + X
+View Website
+14. Copy Public IPv4 Address
+Go back to EC2 Instances
+Copy Public IPv4 Address
+Example:
+Plain text
+http://your-public-ip
+Paste it into browser.
